@@ -1,0 +1,5 @@
+<sly data-sly-template.image="${@ model}">
+    <sly data-sly-test="${!wcmmode.edit && model.backgroundImage}">
+        <img src="${model.imagePath}" alt="${model.altText}">
+    </sly>
+</sly>
