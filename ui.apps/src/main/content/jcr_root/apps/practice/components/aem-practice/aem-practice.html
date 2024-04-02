@@ -1,0 +1,25 @@
+<sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html"
+     data-sly-call="${clientLib.css @ categories='com.practice.task'}"></sly>
+
+<div data-sly-use.model="com.adobe.aem.practice.core.models.AemPracticeModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-use.imageTemplate="templates/htl/image.html"
+     data-sly-use.titleTemplate="templates/htl/title.html"
+     data-sly-use.actionsTemplate="templates/htl/actions.html"
+     data-sly-test.hasContent="${model.imagePath || model.title || model.navigationItems.size > 0}"
+     id="${model.id}">
+
+    <div class="cmp-teaser__content">
+        <sly data-sly-call="${titleTemplate.title @ model=model}"></sly>
+        <sly data-sly-call="${actionsTemplate.actions @ model=model}"></sly>
+    </div>
+
+    <sly data-sly-test="${wcmmode.edit}">
+        <div>AUTHOR MODE</div>
+    </sly>
+
+    <div>${model.pageNameAndPath}</div>
+
+    <sly data-sly-call="${imageTemplate.image @ model=model}"></sly>
+</div>
+<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent}"></sly>

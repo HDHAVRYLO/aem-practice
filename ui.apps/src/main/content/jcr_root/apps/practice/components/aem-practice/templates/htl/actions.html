@@ -1,0 +1,8 @@
+<sly data-sly-template.actions="${@ model}">
+    <ul class="cmp-teaser__action-container" data-sly-list="${model.navigationItems}">
+        <li class="${itemList.first? 'bold' : ''}">
+            <a href="${item.link}">${item.text @ context='html'}</a>
+        </li>
+    </ul>
+</sly>
+
