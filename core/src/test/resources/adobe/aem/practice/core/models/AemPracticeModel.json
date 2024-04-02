@@ -1,0 +1,39 @@
+{
+  "us": {
+    "jcr:primaryType": "cq:Page",
+    "jcr:content": {
+      "jcr:primaryType": "cq:PageContent",
+      "sling:resourceType": "aem/practice/page"
+    },
+    "en": {
+      "jcr:primaryType": "cq:Page",
+      "jcr:content": {
+        "jcr:primaryType": "cq:PageContent",
+        "sling:resourceType": "aem/practice/page"
+      },
+      "page": {
+        "jcr:primaryType": "cq:Page",
+        "jcr:createdBy": "havrylova",
+        "jcr:created": "Tue Nov 29 2022 10:49:32 GMT+0000"
+      }
+    }
+  },
+  "aem-practice": {
+    "jcr:primaryType": "nt:unstructured",
+    "jcr:createdBy": "admin",
+    "jcr:title": "AEM practice",
+    "jcr:lastModifiedBy": "admin",
+    "jcr:created": "Fri Jun 30 2023 10:07:26 GMT+0000",
+    "imagePath": "/content/dam/my-project",
+    "id": "123",
+    "backgroundImageEnabled": "true",
+    "actions": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+        "jcr:primaryType": "nt:unstructured",
+        "link": "/content/h-d/us/en/index",
+        "text": "cta"
+      }
+    }
+  }
+}

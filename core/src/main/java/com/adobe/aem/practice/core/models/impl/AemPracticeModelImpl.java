@@ -1,8 +1,8 @@
 package com.adobe.aem.practice.core.models.impl;
 
-import com.day.cq.wcm.api.Page;
 import com.adobe.aem.practice.core.models.AemPracticeModel;
 import com.adobe.aem.practice.core.models.NavigationItem;
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -20,6 +20,7 @@ import static com.day.cq.commons.jcr.JcrConstants.JCR_TITLE;
 
 @Model(adaptables = SlingHttpServletRequest.class,
         adapters = AemPracticeModel.class,
+        resourceType = "my-project/components/inner",
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class AemPracticeModelImpl implements AemPracticeModel {
 
@@ -56,8 +57,10 @@ public class AemPracticeModelImpl implements AemPracticeModel {
         return Optional.ofNullable(this.navigationItems)
                 .map(items -> items.stream()
                         .map(item -> {
-                            String modifiedText = "TEST_" + item.getText();
-                            item.setText(modifiedText);
+                            if(!item.getText().contains("TEST_")){
+                                String modifiedText = "TEST_" + item.getText();
+                                item.setText(modifiedText);
+                            }
                             return item;
                         })
                         .collect(Collectors.toList()))
